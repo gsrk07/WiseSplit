@@ -2,6 +2,7 @@ package com.scaler.Splitwise.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -16,8 +17,11 @@ public class User extends BaseModel{
     private String phno;
     private String emailid;
 
-    @ManyToMany
-    private List<Expense> expenseList;
+//    @ManyToMany
+//    private List<Expense> expenseList;
+
+    @OneToMany
+    private List<UserExpense> userExpenseList;
     @ManyToMany
     private List<Group> groupList;
 
