@@ -4,13 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+// @AllArgsConstructor commenting this out to create users with no arguments in initialise method.
 @Entity(name = "SPLITWISE_USER")
+@Builder // just to show that lombok also provides Builder object so we will directly use Builder annotation here.
 public class User extends BaseModel{
 
     private String name;
