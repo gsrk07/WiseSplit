@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity(name = "SPLITWISE_EXPENSE")
 public class Expense extends BaseModel{
 

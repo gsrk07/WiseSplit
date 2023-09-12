@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity(name = "SPLITWISE_USEREXPENSE")
 public class UserExpense extends BaseModel {
 

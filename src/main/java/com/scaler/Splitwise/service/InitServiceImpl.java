@@ -1,7 +1,6 @@
 package com.scaler.Splitwise.service;
 
-import com.scaler.Splitwise.models.Group;
-import com.scaler.Splitwise.models.User;
+import com.scaler.Splitwise.models.*;
 import com.scaler.Splitwise.repository.ExpenseRepository;
 import com.scaler.Splitwise.repository.GroupRepository;
 import com.scaler.Splitwise.repository.UserExpenseRepository;
@@ -61,8 +60,48 @@ public class InitServiceImpl implements InitService{
         group.setName("Ladakh Bike Trip");
         group.setUserList(List.of(u1,u2,u3,u4));
 
-        groupRepository.save(group);
+        group = groupRepository.save(group);
 
+        // scenario 1 is all 4 users go to dinner, ue1 pays 1000 and the amount is split across the group equally.
+
+        Expense expense = new Expense();
+        expense.setDescription("Dinner");
+        expense.setCurrency(Currency.INR);
+        expense.setGroup(group);
+
+        UserExpense ue1 = new UserExpense();
+        ue1.setUser(u1);
+        ue1.setAmount(1000);
+        ue1.setUserExpenseType(UserExpenseType.PAID);
+        ue1 = userExpenseRepository.save(ue1);
+
+        UserExpense ue2 = new UserExpense();
+        ue2.setUser(u1);
+        ue2.setAmount(250);
+        ue2.setUserExpenseType(UserExpenseType.HAS_TO_PAY);
+        ue2 = userExpenseRepository.save(ue2);
+
+        UserExpense ue3 = new UserExpense();
+        ue3.setUser(u2);
+        ue3.setAmount(250);
+        ue3.setUserExpenseType(UserExpenseType.HAS_TO_PAY);
+        ue3 = userExpenseRepository.save(ue3);
+
+        UserExpense ue4 = new UserExpense();
+        ue4.setUser(u3);
+        ue4.setAmount(250);
+        ue4.setUserExpenseType(UserExpenseType.HAS_TO_PAY);
+        ue4 = userExpenseRepository.save(ue4);
+
+        UserExpense ue5 = new UserExpense();
+        ue5.setUser(u4);
+        ue5.setAmount(250);
+        ue5.setUserExpenseType(UserExpenseType.HAS_TO_PAY);
+        ue5 = userExpenseRepository.save(ue5);
+
+        expense.setUserExpenses(List.of(ue1,ue2,ue3,ue4,ue5));
+
+        expenseRepository.save(expense);
 
     }
 }
