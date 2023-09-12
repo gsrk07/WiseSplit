@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity(name = "SPLITWISE_GROUP")
 public class Group extends BaseModel{
 

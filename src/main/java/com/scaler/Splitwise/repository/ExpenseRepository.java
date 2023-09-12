@@ -1,10 +1,11 @@
 package com.scaler.Splitwise.repository;
 
+import com.scaler.Splitwise.models.Expense;
 import com.scaler.Splitwise.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExpenseRepository extends JpaRepository<User,Long> {
+public interface ExpenseRepository extends JpaRepository<Expense,Long> {
 
 }
