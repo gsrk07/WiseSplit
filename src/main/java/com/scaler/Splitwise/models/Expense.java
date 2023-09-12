@@ -8,15 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 
 @Data
-//@AllArgsConstructor
+//@AllArgsConstructor commenting out to remove the error caused in initialisation service for Expense object creation.
 @Entity(name = "SPLITWISE_EXPENSE")
 public class Expense extends BaseModel{
 
     private String description;
     private double amount;
-    // So, now an Expense is tagged to a group.
-    @ManyToOne
-    private Group group;
+
+    /*
+      Expense : UserExpense -> 1:M { uni-directional on expense side}
+      Group : Expense -> 1:M { uni-directional on group side }
+    */
+
+//    @ManyToOne
+//    private Group group;
 
     @Enumerated(EnumType.ORDINAL)
     //@ElementCollection we dont need element collection here since one expense can only be in one currency. had it been in multiple currencies, then we need @ElementCollection

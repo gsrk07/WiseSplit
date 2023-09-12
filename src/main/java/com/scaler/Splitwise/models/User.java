@@ -19,14 +19,23 @@ public class User extends BaseModel{
     private String phno;
     private String emailid;
 
-//    @ManyToMany
-//    private List<Expense> expenseList;
+    // we comment this out since Having User detail in User expense makes more sense and this way we keep the mapping as Unidirectional.
+//    @OneToMany
+//    private List<UserExpense> userExpenseList;
 
-    @OneToMany
-    private List<UserExpense> userExpenseList;
     @ManyToMany
     private List<Group> groupList;
 
+    /*
+    User - Group : M:M -> Bidirectional
+    User - UserExpense : 1:M ->
+
+
+    Expense
+       paid : A=100, B=100    { we want to know how much each user has
+       spent or has to spend, we want to know the amount and user from each userExpense object}
+       hasToPay : A=50, B=50, C=100
+ */
 
     /*
         1 user can have multiple expenses and 1 expense can have multiple users. hence many to many relation.
