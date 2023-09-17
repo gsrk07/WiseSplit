@@ -15,7 +15,7 @@ public class Group extends BaseModel{
 
     private String name;
     private String description;
-    @ManyToMany
+    @ManyToMany(mappedBy = "groupList")
     private List<User> userList;
     @OneToMany
     private List<Expense> expenseList;

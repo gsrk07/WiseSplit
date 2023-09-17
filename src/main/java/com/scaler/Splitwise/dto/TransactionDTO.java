@@ -14,9 +14,7 @@ import lombok.Setter;
 public class TransactionDTO {
 
     private String fromUserName;
-
     private String toUserName;
-
     private double amount;
 
 //    public TransactionDTO(String fromUserName, String toUserName, double amount) {

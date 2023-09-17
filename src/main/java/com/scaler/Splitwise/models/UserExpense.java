@@ -12,7 +12,8 @@ import lombok.Data;
 @Entity(name = "SPLITWISE_USEREXPENSE")
 public class UserExpense extends BaseModel {
 
-    //Uni directional
+    //Uni directional mapping since from the Userexpense, we can derive what is the expense of the user and who is that user.
+    // hence we will have the mapping from Userexpense to user. and many userexpenses can be part of one user.
     @ManyToOne
     private User user;
     private double amount;

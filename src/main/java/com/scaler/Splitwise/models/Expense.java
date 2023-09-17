@@ -14,10 +14,12 @@ public class Expense extends BaseModel{
 
     private String description;
     private double amount;
+    @OneToMany
+    private List<UserExpense> userExpenses;
 
-    /*
+    /* Relationship
       Expense : UserExpense -> 1:M { uni-directional on expense side}
-      Group : Expense -> 1:M { uni-directional on group side }
+      Group : Expense -> 1:M { uni-directional on group side } we want to know from the Group, all the expenses and then find out all the outstanding amount.
     */
 
 //    @ManyToOne
@@ -33,9 +35,8 @@ public class Expense extends BaseModel{
 //    private List<UserExpense> paidUsersexpenses;
 //    private List<UserExpense> hastoPayUsersexpenses; no need to maintain 2 lists since we can already have one list since we have expense type in userexpense
 
-    @OneToMany
-    private List<UserExpense> userExpenses;
 
+    // relationships
     /*
       Expense : UserExpense -> 1:M { uni-directional on expense side}
       Group : Expense -> 1:M { uni-directional on group side }

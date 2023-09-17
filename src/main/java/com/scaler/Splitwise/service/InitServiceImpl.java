@@ -64,11 +64,6 @@ public class InitServiceImpl implements InitService{
 
         // scenario 1 is all 4 users go to dinner, ue1 pays 1000 and the amount is split across the group equally.
 
-        Expense expense = new Expense();
-        expense.setDescription("Dinner");
-        expense.setCurrency(Currency.INR);
-        expense.setGroup(group);
-
         UserExpense ue1 = new UserExpense();
         ue1.setUser(u1);
         ue1.setAmount(1000);
@@ -99,6 +94,10 @@ public class InitServiceImpl implements InitService{
         ue5.setUserExpenseType(UserExpenseType.HAS_TO_PAY);
         ue5 = userExpenseRepository.save(ue5);
 
+        Expense expense = new Expense();
+        expense.setAmount(1000);
+        expense.setDescription("Dinner");
+        expense.setCurrency(Currency.INR);
         expense.setUserExpenses(List.of(ue1,ue2,ue3,ue4,ue5));
 
         expenseRepository.save(expense);

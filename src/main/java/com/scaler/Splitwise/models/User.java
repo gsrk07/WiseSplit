@@ -28,19 +28,21 @@ public class User extends BaseModel{
 
     /*
     User - Group : M:M -> Bidirectional
-    User - UserExpense : 1:M ->
+    User - UserExpense : 1:M -> Uni Directional
+
+    in case of settleup algorithm, we need UserExpense from User.
 
 
     Expense
        paid : A=100, B=100    { we want to know how much each user has
-       spent or has to spend, we want to know the amount and user from each userExpense object}
+       spent or has to spend, i.e. we want to know the amount and user from each userExpense object}
        hasToPay : A=50, B=50, C=100
  */
 
     /*
         1 user can have multiple expenses and 1 expense can have multiple users. hence many to many relation.
         1 user can be part of multiple groups and 1 group can have multiple users. hence many to many relation.
-
+          1 expense will have number of userexpenses. from that userexpenses we need the user
      */
 
     /*
